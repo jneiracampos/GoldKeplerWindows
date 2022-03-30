@@ -1,0 +1,10 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	Q := {"A","B"}
+	Σ := {'*'}
+	q := "A"
+	F := {"B"}
+	δ := {"A",'*',"B"}
+end

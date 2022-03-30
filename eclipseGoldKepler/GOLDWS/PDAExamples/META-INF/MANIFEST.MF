@@ -11,9 +11,8 @@ Require-Bundle: com.ibm.icu,
  org.eclipse.xtend,
  org.eclipse.xtend.typesystem.emf,
  org.eclipse.xpand,
- de.itemis.xtext.antlr;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.gold.dsl
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

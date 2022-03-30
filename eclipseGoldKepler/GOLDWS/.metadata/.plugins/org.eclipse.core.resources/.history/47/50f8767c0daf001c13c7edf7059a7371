@@ -1,0 +1,17 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	Q := {A, B}
+	Σ := {'*', '/', ';', '#', '%'}
+	q := A
+	F := {B}
+	δ := [[1, '*', 2],
+			[1, '/', 2],
+		   [1, ';', 2],
+		   [1, '#', 2],
+		   [1, '%', 2]]
+		 
+	A := GDeterministicAutomaton(Q,Σ,q,F,δ)
+	GAutomataFrame.show(A)
+end

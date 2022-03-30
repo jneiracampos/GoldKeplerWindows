@@ -1,0 +1,33 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	Q := {"1","2","3","4","5","6","error"}
+	Σ := {'*','/',';','#','%','a','b','c','d','e','A','B','C','D','E'}
+	q := "1"
+	F := {"3","4"}
+	δ := ⟦⟦"1",'*',"2"⟧,⟦"1",'/',"2"⟧,⟦"1",';',"2"⟧,⟦"1",'#',"2"⟧,⟦"1",'%',"2"⟧,
+		  ⟦"1",'a',"3"⟧,⟦"1",'b',"3"⟧,⟦"1",'c',"3"⟧,⟦"1",'d',"3"⟧,⟦"1",'e',"4"⟧,
+		  ⟦"1",'A',"4"⟧,⟦"1",'B',"4"⟧,⟦"1",'C',"4"⟧,⟦"1",'D',"4"⟧,⟦"1",'E',"4"⟧,
+		  ⟦"2",'a',"5"⟧,⟦"2",'b',"5"⟧,⟦"2",'c',"5"⟧,⟦"2",'d',"5"⟧,⟦"2",'e',"5"⟧,
+		  ⟦"2",'A',"6"⟧,⟦"2",'B',"6"⟧,⟦"2",'C',"6"⟧,⟦"2",'D',"6"⟧,⟦"2",'E',"6"⟧,
+		  ⟦"2",'*',"error"⟧,⟦"2",'/',"error"⟧,⟦"2",';',"error"⟧,⟦"2",'#',"error"⟧,⟦"2",'%',"error"⟧,
+		  ⟦"3",'*',"error"⟧,⟦"3",'/',"error"⟧,⟦"3",';',"error"⟧,⟦"3",'#',"error"⟧,⟦"3",'%',"error"⟧,
+		  ⟦"3",'a',"error"⟧,⟦"3",'b',"error"⟧,⟦"3",'c',"error"⟧,⟦"3",'d',"error"⟧,⟦"3",'e',"error"⟧,
+		  ⟦"3",'A',"error"⟧,⟦"3",'B',"error"⟧,⟦"3",'C',"error"⟧,⟦"3",'D',"error"⟧,⟦"3",'E',"error"⟧, 
+		  ⟦"4",'*',"error"⟧,⟦"4",'/',"error"⟧,⟦"4",';',"error"⟧,⟦"4",'#',"error"⟧,⟦"4",'%',"error"⟧,
+		  ⟦"4",'a',"error"⟧,⟦"4",'b',"error"⟧,⟦"4",'c',"error"⟧,⟦"4",'d',"error"⟧,⟦"4",'e',"error"⟧,
+		  ⟦"4",'A',"error"⟧,⟦"4",'B',"error"⟧,⟦"4",'C',"error"⟧,⟦"4",'D',"error"⟧,⟦"4",'E',"error"⟧,
+		  ⟦"5",'*',"error"⟧,⟦"5",'/',"error"⟧,⟦"5",';',"error"⟧,⟦"5",'#',"error"⟧,⟦"5",'%',"error"⟧,
+		  ⟦"5",'a',"error"⟧,⟦"5",'b',"error"⟧,⟦"5",'c',"error"⟧,⟦"5",'d',"error"⟧,⟦"5",'e',"error"⟧,
+		  ⟦"5",'A',"error"⟧,⟦"5",'B',"error"⟧,⟦"5",'C',"error"⟧,⟦"5",'D',"error"⟧,⟦"5",'E',"error"⟧,
+		  ⟦"6",'*',"error"⟧,⟦"6",'/',"error"⟧,⟦"6",';',"error"⟧,⟦"6",'#',"error"⟧,⟦"6",'%',"error"⟧,
+		  ⟦"6",'a',"error"⟧,⟦"6",'b',"error"⟧,⟦"6",'c',"error"⟧,⟦"6",'d',"error"⟧,⟦"6",'e',"error"⟧,
+		  ⟦"6",'A',"error"⟧,⟦"6",'B',"error"⟧,⟦"6",'C',"error"⟧,⟦"6",'D',"error"⟧,⟦"6",'E',"error"⟧,
+		  ⟦"error",'*',"error"⟧,⟦"error",'/',"error"⟧,⟦"error",';',"error"⟧,⟦"error",'#',"error"⟧,⟦"error",'%',"error"⟧,
+		  ⟦"error",'a',"error"⟧,⟦"error",'b',"error"⟧,⟦"error",'c',"error"⟧,⟦"error",'d',"error"⟧,⟦"error",'e',"error"⟧,
+		  ⟦"error",'A',"error"⟧,⟦"error",'B',"error"⟧,⟦"error",'C',"error"⟧,⟦"error",'D',"error"⟧,⟦"error",'E',"error"⟧⟧
+	var A: IAutomaton
+	A := GDeterministicAutomaton(Q,Σ,q,F,δ)
+	GAutomataFrame.show(A)
+end

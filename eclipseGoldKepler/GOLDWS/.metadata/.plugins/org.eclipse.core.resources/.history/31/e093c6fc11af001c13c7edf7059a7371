@@ -1,0 +1,15 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	Q := {"A","B","error"}
+	Σ := {'*','/',';','#','%'}
+	q := "A"
+	F := {"B"}
+	δ := ⟦⟦"A",'*',"B"⟧,⟦"A",'/',"B"⟧,⟦"A",';',"B"⟧,⟦"A",'#',"B"⟧,⟦"A",'%',"B"⟧,
+		  ⟦"B",'*',"error"⟧,⟦"B",'/',"error"⟧,⟦"B",';',"error"⟧,⟦"B",'#',"error"⟧,⟦"B",'%',"error"⟧,
+		  ⟦"error",'*',"error"⟧,⟦"error",'/',"error"⟧,⟦"error",';',"error"⟧,⟦"error",'#',"error"⟧,⟦"error",'%',"error"⟧⟧
+	var A: IAutomaton
+	A := GDeterministicAutomaton(Q,Σ,q,F,δ)
+	GAutomataFrame.show(A)
+end

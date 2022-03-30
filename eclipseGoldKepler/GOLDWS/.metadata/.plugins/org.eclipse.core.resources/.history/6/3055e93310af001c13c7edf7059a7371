@@ -1,0 +1,6 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	print "Hello World"
+end

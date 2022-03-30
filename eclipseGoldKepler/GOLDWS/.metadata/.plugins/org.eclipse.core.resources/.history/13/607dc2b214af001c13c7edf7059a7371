@@ -1,0 +1,27 @@
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+
+procedure main(args:String[]) begin
+	Q := {"1","2","3","4","error"}
+	Σ := {'*','/',';','#','%','a','b','c','d','e','A','B','C','D','E'}
+	q := "1"
+	F := {"3","4"}
+	δ := ⟦⟦"1",'*',"2"⟧,⟦"1",'/',"2"⟧,⟦"1",';',"2"⟧,⟦"1",'#',"2"⟧,⟦"1",'%',"2"⟧,
+		  ⟦"1",'a',"error"⟧,⟦"1",'b',"error"⟧,⟦"1",'c',"error"⟧,⟦"1",'d',"error"⟧,⟦"1",'e',"error"⟧,
+		  ⟦"1",'A',"error"⟧,⟦"1",'B',"error"⟧,⟦"1",'C',"error"⟧,⟦"1",'D',"error"⟧,⟦"1",'E',"error"⟧,
+		  ⟦"2",'a',"3"⟧,⟦"2",'b',"3"⟧,⟦"2",'c',"3"⟧,⟦"2",'d',"3"⟧,⟦"2",'e',"3"⟧,
+		  ⟦"2",'A',"4"⟧,⟦"2",'B',"4"⟧,⟦"2",'C',"4"⟧,⟦"2",'D',"4"⟧,⟦"2",'E',"4"⟧,
+		  ⟦"2",'*',"error"⟧,⟦"2",'/',"error"⟧,⟦"2",';',"error"⟧,⟦"2",'#',"error"⟧,⟦"2",'%',"error"⟧,
+		  ⟦"3",'*',"error"⟧,⟦"3",'/',"error"⟧,⟦"3",';',"error"⟧,⟦"3",'#',"error"⟧,⟦"3",'%',"error"⟧,
+		  ⟦"3",'a',"error"⟧,⟦"3",'b',"error"⟧,⟦"3",'c',"error"⟧,⟦"3",'d',"error"⟧,⟦"3",'e',"error"⟧,
+		  ⟦"3",'A',"error"⟧,⟦"3",'B',"error"⟧,⟦"3",'C',"error"⟧,⟦"3",'D',"error"⟧,⟦"3",'E',"error"⟧, 
+		  ⟦"4",'*',"error"⟧,⟦"4",'/',"error"⟧,⟦"4",';',"error"⟧,⟦"4",'#',"error"⟧,⟦"4",'%',"error"⟧,
+		  ⟦"4",'a',"error"⟧,⟦"4",'b',"error"⟧,⟦"4",'c',"error"⟧,⟦"4",'d',"error"⟧,⟦"4",'e',"error"⟧,
+		  ⟦"4",'A',"error"⟧,⟦"4",'B',"error"⟧,⟦"4",'C',"error"⟧,⟦"4",'D',"error"⟧,⟦"4",'E',"error"⟧,
+		  ⟦"error",'*',"error"⟧,⟦"error",'/',"error"⟧,⟦"error",';',"error"⟧,⟦"error",'#',"error"⟧,⟦"error",'%',"error"⟧,
+		  ⟦"error",'a',"error"⟧,⟦"error",'b',"error"⟧,⟦"error",'c',"error"⟧,⟦"error",'d',"error"⟧,⟦"error",'e',"error"⟧,
+		  ⟦"error",'A',"error"⟧,⟦"error",'B',"error"⟧,⟦"error",'C',"error"⟧,⟦"error",'D',"error"⟧,⟦"error",'E',"error"⟧⟧
+	var A: IAutomaton
+	A := GDeterministicAutomaton(Q,Σ,q,F,δ)
+	GAutomataFrame.show(A)
+end
